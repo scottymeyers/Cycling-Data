@@ -20,11 +20,10 @@ const App: React.FC = () => {
   });
 
   useEffect(() => {
-    if (!map) return;
-    activities.map((route) => map.data.addGeoJson(route));
-    map.data.setStyle({
-      strokeColor: 'red',
-      strokeWidth: 1,
+    activities.map((route) => map?.data.addGeoJson(route));
+    map?.data.setStyle({
+      strokeColor: '#000000',
+      strokeWidth: 2,
     });
   }, [map]);
 
