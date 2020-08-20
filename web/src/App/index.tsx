@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { LoadScript, GoogleMap } from '@react-google-maps/api';
+import { FeatureCollection } from 'geojson';
 import * as config from 'config';
 import activities from 'activities.json';
 
@@ -20,6 +21,9 @@ const App: React.FC = () => {
   });
 
   useEffect(() => {
+    //const test = JSON.parse(activities);
+    //console.log(test);
+    //const data: FeatureCollection[] = test;
     activities.map((route) => map?.data.addGeoJson(route));
     map?.data.setStyle({
       strokeColor: '#000000',
