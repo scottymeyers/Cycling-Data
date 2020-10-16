@@ -1,11 +1,14 @@
 {
-  "name": "threejs",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "scotty-cycling-server",
+  "version": "0.1.0",
+  "private": true,
   "license": "MIT",
   "dependencies": {
     "@mapbox/togeojson": "^0.16.0",
     "fs": "^0.0.1-security",
     "xmldom": "^0.3.0"
+  },
+  "scripts": {
+    "convert": "node convertGPXToGeoJSON"
   }
 }

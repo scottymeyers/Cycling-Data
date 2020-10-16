@@ -1,7 +1,8 @@
 {
-  "name": "cycling",
+  "name": "scotty-cycling-web",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@types/geojson": "^7946.0.7",
     "@react-google-maps/api": "^1.9.7",

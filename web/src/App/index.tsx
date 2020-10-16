@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { LoadScript, GoogleMap } from '@react-google-maps/api';
 import { FeatureCollection } from 'geojson';
 import * as config from 'config';
-import activities from 'activities.json';
+import * as activities from 'activities.json';
 
 const App: React.FC = () => {
-  const [map, setMap] = useState();
+  const [map, setMap] = useState<google.maps.Map | null>(null);
   const mapOptions = useRef<google.maps.MapOptions>({
     center: { lat: 40.699, lng: -73.976 },
     clickableIcons: false,
@@ -20,16 +20,17 @@ const App: React.FC = () => {
     zoom: 14,
   });
 
+  const parsedActivities = JSON.parse(JSON.stringify(activities));
+  const data: FeatureCollection[] = parsedActivities.default;
+
   useEffect(() => {
-    //const test = JSON.parse(activities);
-    //console.log(test);
-    //const data: FeatureCollection[] = test;
-    activities.map((route) => map?.data.addGeoJson(route));
-    map?.data.setStyle({
+    if (!map) return;
+    data.map((route: FeatureCollection) => map.data.addGeoJson(route));
+    map.data.setStyle({
       strokeColor: '#000000',
-      strokeWidth: 2,
+      strokeWeight: 2,
     });
-  }, [map]);
+  }, [data, map]);
 
   return (
     <LoadScript
