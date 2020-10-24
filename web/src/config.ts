@@ -131,7 +131,7 @@ export const mapStyles: google.maps.MapTypeStyle[] = [
     elementType: 'all',
     stylers: [
       {
-        color: '#b3f7ff',
+        color: 'blue',
       },
       {
         visibility: 'on',

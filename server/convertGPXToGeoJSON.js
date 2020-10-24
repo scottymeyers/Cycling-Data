@@ -17,9 +17,12 @@ readdir('./gpx', (error, files) => {
     console.log(`Converting ${count} GPX files...`);
     if (file.endsWith('gpx')) {
       const gpx = new DOMParser().parseFromString(readFileSync(`./gpx/${file}`, 'utf8'));
-      const converted = togeojson.gpx(gpx);
       const convertedWithStyles = togeojson.gpx(gpx, { styles: true });
-      activities.push(convertedWithStyles);
+      convertedWithStyles.features.forEach((feature) => {
+        if (feature.properties.type === '1') {
+          activities.push(convertedWithStyles);
+        }
+      });
     }
     count--;
   });
