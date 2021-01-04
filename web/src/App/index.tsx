@@ -7,7 +7,7 @@ import * as activities from 'activities.json';
 const App: React.FC = () => {
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const mapOptions = useRef<google.maps.MapOptions>({
-    center: { lat: 40.699, lng: -73.976 },
+    center: { lat: 40.699, lng: -73.99 },
     clickableIcons: false,
     disableDefaultUI: true,
     disableDoubleClickZoom: true,
@@ -17,7 +17,7 @@ const App: React.FC = () => {
     panControl: false,
     scrollwheel: true,
     styles: config.mapStyles,
-    zoom: 14,
+    zoom: 12,
   });
 
   const parsedActivities = JSON.parse(JSON.stringify(activities));

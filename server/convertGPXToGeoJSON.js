@@ -1,18 +1,15 @@
 const fs = require('fs');
 const togeojson = require('@mapbox/togeojson');
 const xmldom = require('xmldom');
-
 const { readdir, readFileSync, writeFile } = fs;
 const DOMParser = xmldom.DOMParser;
 
 const activities = [];
 let count = 0;
 
-readdir('./gpx', (error, files) => {
+readdir('./gpx', (_, files) => {
   count = files.length;
-
   console.log(`Starting conversion of ${count} GPX files...`);
-
   files.forEach((file) => {
     console.log(`Converting ${count} GPX files...`);
     if (file.endsWith('gpx')) {
