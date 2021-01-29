@@ -1,7 +1,5 @@
 export const apiKey = process.env.REACT_APP_GMAPS_API_KEY;
 
-export const mapLibraries = ['places', 'drawing', 'geometry'];
-
 export const mapStyles: google.maps.MapTypeStyle[] = [
   {
     featureType: 'administrative',

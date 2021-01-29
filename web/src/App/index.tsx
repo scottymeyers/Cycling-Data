@@ -32,10 +32,11 @@ const App: React.FC = () => {
     });
   }, [data, map]);
 
+  if (!config.apiKey) return null;
   return (
     <LoadScript
       googleMapsApiKey={config.apiKey}
-      libraries={config.mapLibraries}
+      libraries={['places', 'drawing', 'geometry']}
       loadingElement={<></>}
     >
       <GoogleMap id="map" options={mapOptions.current} onLoad={setMap} />
